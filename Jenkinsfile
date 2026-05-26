@@ -10,13 +10,15 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                // Use Windows batch command
+                bat 'pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'python -m unittest discover'
+                // Run Python unit tests
+                bat 'python -m unittest discover'
             }
         }
     }
