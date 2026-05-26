@@ -1,0 +1,21 @@
+pipeline:
+  name: Python CI Demo
+  stages:
+    - stage:
+        name: Build and Test
+        type: CI
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: Install Dependencies
+                  type: Run
+                  spec:
+                    shell: Sh
+                    command: pip install -r requirements.txt
+              - step:
+                  name: Run Tests
+                  type: Run
+                  spec:
+                    shell: Sh
+                    command: python -m unittest discover
